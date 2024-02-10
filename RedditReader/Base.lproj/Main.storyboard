@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_72" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Post View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="PostViewController" customModule="RedditReader" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gTG-Ju-jSP">
+                                <rect key="frame" x="0.0" y="321" width="430" height="315.33333333333326"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XGk-Lj-N7G">
+                                        <rect key="frame" x="10" y="0.0" width="77.333333333333329" height="19.333333333333332"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="•" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NFy-1N-PQl">
+                                        <rect key="frame" x="95.333333333333329" y="0.0" width="7.3333333333333286" height="19.333333333333332"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="•" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fdn-gs-WEb">
+                                        <rect key="frame" x="176" y="0.0" width="7.3333333333333428" height="19.333333333333332"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10h ago" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ndI-aZ-rh4">
+                                        <rect key="frame" x="110.66666666666667" y="0.0" width="57.333333333333329" height="19.333333333333332"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="domain" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XWl-rr-klL">
+                                        <rect key="frame" x="191.33333333333334" y="0.0" width="53.666666666666657" height="19.333333333333332"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kYx-5K-wPe">
+                                        <rect key="frame" x="389.33333333333331" y="-7" width="40.666666666666686" height="33.333333333333336"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain">
+                                            <imageReference key="image" image="bookmark" catalog="system" symbolScale="default"/>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="16" scale="medium"/>
+                                        </buttonConfiguration>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The 6 Most Intriguing Things We Learned about Pet Cats and Dogs This Year" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aHK-PX-dQP">
+                                        <rect key="frame" x="16" y="29.333333333333314" width="398" height="43"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="kittens" translatesAutoresizingMaskIntoConstraints="NO" id="Ai9-dn-HuE">
+                                        <rect key="frame" x="16" y="87.333333333333314" width="398" height="164"/>
+                                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="164" id="pDf-Ll-un4"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="RLc-QG-w82">
+                                        <rect key="frame" x="16" y="261.33333333333337" width="253" height="44"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4pq-IX-8U8">
+                                                <rect key="frame" x="0.0" y="4.6666666666666288" width="65" height="34.333333333333336"/>
+                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="14" imagePadding="8">
+                                                    <imageReference key="image" image="arrowshape.up" catalog="system" symbolScale="small"/>
+                                                    <backgroundConfiguration key="background" cornerRadius="20">
+                                                        <color key="backgroundColor" red="0.91850537060000004" green="0.929503262" blue="0.93715208770000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    </backgroundConfiguration>
+                                                    <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                </buttonConfiguration>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CM9-4l-DmS">
+                                                <rect key="frame" x="81" y="4.6666666666666288" width="67" height="34.333333333333336"/>
+                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="10" imagePadding="8">
+                                                    <imageReference key="image" image="bubble" catalog="system" symbolScale="small"/>
+                                                    <backgroundConfiguration key="background" cornerRadius="20">
+                                                        <color key="backgroundColor" red="0.91850537060000004" green="0.929503262" blue="0.93715208770000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    </backgroundConfiguration>
+                                                    <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                </buttonConfiguration>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7fj-S3-tdf">
+                                                <rect key="frame" x="164" y="4.6666666666666288" width="89" height="34.333333333333336"/>
+                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Share" imagePadding="8">
+                                                    <imageReference key="image" image="square.and.arrow.up" catalog="system" symbolScale="small"/>
+                                                    <backgroundConfiguration key="background" cornerRadius="20">
+                                                        <color key="backgroundColor" red="0.91850537060000004" green="0.929503262" blue="0.93715208770000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    </backgroundConfiguration>
+                                                    <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                </buttonConfiguration>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="PXX-6i-Kr7"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="Ai9-dn-HuE" firstAttribute="top" secondItem="aHK-PX-dQP" secondAttribute="bottom" constant="15" id="0AJ-OM-uup" userLabel="Image View.top = The 6 Most Intriguing Things We Learned about Pet Cats and Dogs This Year.bottom + 10"/>
+                                    <constraint firstItem="ndI-aZ-rh4" firstAttribute="top" secondItem="gTG-Ju-jSP" secondAttribute="top" id="25O-gQ-gHq"/>
+                                    <constraint firstItem="XWl-rr-klL" firstAttribute="top" secondItem="gTG-Ju-jSP" secondAttribute="top" id="ATE-4z-5N3"/>
+                                    <constraint firstAttribute="bottom" secondItem="RLc-QG-w82" secondAttribute="bottom" constant="10" id="BEq-7t-JO1"/>
+                                    <constraint firstItem="Ai9-dn-HuE" firstAttribute="leading" secondItem="gTG-Ju-jSP" secondAttribute="leading" constant="16" id="CZt-Ax-2OX"/>
+                                    <constraint firstItem="ndI-aZ-rh4" firstAttribute="leading" secondItem="NFy-1N-PQl" secondAttribute="trailing" constant="8" id="Dms-PE-W6D"/>
+                                    <constraint firstItem="kYx-5K-wPe" firstAttribute="top" secondItem="gTG-Ju-jSP" secondAttribute="top" constant="-7" id="EeV-oC-bfi"/>
+                                    <constraint firstItem="XWl-rr-klL" firstAttribute="leading" secondItem="Fdn-gs-WEb" secondAttribute="trailing" constant="8" id="HHF-DM-KxX"/>
+                                    <constraint firstItem="aHK-PX-dQP" firstAttribute="top" secondItem="XGk-Lj-N7G" secondAttribute="bottom" constant="10" id="RnI-dK-dgE" userLabel="The 6 Most Intriguing Things We Learned about Pet Cats and Dogs This Year.top = username.bottom + 10"/>
+                                    <constraint firstItem="XGk-Lj-N7G" firstAttribute="leading" secondItem="gTG-Ju-jSP" secondAttribute="leading" constant="10" id="VgJ-0V-Njz"/>
+                                    <constraint firstItem="kYx-5K-wPe" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="XWl-rr-klL" secondAttribute="trailing" constant="8" symbolic="YES" id="YtE-yd-Q1z"/>
+                                    <constraint firstItem="RLc-QG-w82" firstAttribute="top" secondItem="Ai9-dn-HuE" secondAttribute="bottom" constant="10" id="ZbR-gW-cC1"/>
+                                    <constraint firstItem="NFy-1N-PQl" firstAttribute="top" secondItem="gTG-Ju-jSP" secondAttribute="top" id="bvE-rc-EEL"/>
+                                    <constraint firstItem="NFy-1N-PQl" firstAttribute="leading" secondItem="XGk-Lj-N7G" secondAttribute="trailing" constant="8" id="eCb-pm-OcY"/>
+                                    <constraint firstItem="RLc-QG-w82" firstAttribute="leading" secondItem="gTG-Ju-jSP" secondAttribute="leading" constant="16" id="eRr-JM-aSb"/>
+                                    <constraint firstItem="XGk-Lj-N7G" firstAttribute="top" secondItem="gTG-Ju-jSP" secondAttribute="top" id="ebH-wr-Bw7"/>
+                                    <constraint firstItem="Fdn-gs-WEb" firstAttribute="top" secondItem="gTG-Ju-jSP" secondAttribute="top" id="fRm-gZ-MLB"/>
+                                    <constraint firstAttribute="trailing" secondItem="kYx-5K-wPe" secondAttribute="trailing" id="fx9-Ek-VLA"/>
+                                    <constraint firstItem="Fdn-gs-WEb" firstAttribute="leading" secondItem="ndI-aZ-rh4" secondAttribute="trailing" constant="8" id="gbr-aC-zSu"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ai9-dn-HuE" secondAttribute="trailing" constant="16" id="m4X-K0-NsB"/>
+                                    <constraint firstItem="aHK-PX-dQP" firstAttribute="leading" secondItem="gTG-Ju-jSP" secondAttribute="leading" constant="16" id="rcw-c5-zW4"/>
+                                    <constraint firstAttribute="trailing" secondItem="aHK-PX-dQP" secondAttribute="trailing" constant="16" id="zGo-nS-kHG"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gTG-Ju-jSP" secondAttribute="trailing" id="C1L-we-efI"/>
+                            <constraint firstItem="gTG-Ju-jSP" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="NXO-Kt-xBS"/>
+                            <constraint firstItem="gTG-Ju-jSP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="VPk-Gf-5Ix"/>
+                            <constraint firstItem="gTG-Ju-jSP" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="rvY-JF-hhc"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="bookmarkLabel" destination="kYx-5K-wPe" id="fvB-s9-JxS"/>
+                        <outlet property="commentsCount" destination="CM9-4l-DmS" id="vGy-Sf-ZeB"/>
+                        <outlet property="createdAt" destination="ndI-aZ-rh4" id="svf-rs-wSO"/>
+                        <outlet property="domain" destination="XWl-rr-klL" id="ynS-nN-rs8"/>
+                        <outlet property="postImage" destination="Ai9-dn-HuE" id="6fC-Gz-pG4"/>
+                        <outlet property="postTitle" destination="aHK-PX-dQP" id="vzH-64-5Jb"/>
+                        <outlet property="rating" destination="4pq-IX-8U8" id="d7B-HX-NP3"/>
+                        <outlet property="share" destination="7fj-S3-tdf" id="GfY-SZ-6m6"/>
+                        <outlet property="username" destination="XGk-Lj-N7G" id="NCi-pN-IqZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3.8167938931297707" y="-27.464788732394368"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="arrowshape.up" catalog="system" width="123" height="128"/>
+        <image name="bookmark" catalog="system" width="110" height="128"/>
+        <image name="bubble" catalog="system" width="128" height="110"/>
+        <image name="kittens" width="643" height="360"/>
+        <image name="square.and.arrow.up" catalog="system" width="108" height="128"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
