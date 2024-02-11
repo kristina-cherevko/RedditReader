@@ -10,6 +10,12 @@
 		63AB9B992B7721E10028C6CB /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AB9B982B7721E10028C6CB /* Post.swift */; };
 		63AB9B9C2B772A430028C6CB /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 63AB9B9B2B772A430028C6CB /* SDWebImage */; };
 		63AB9B9E2B772A430028C6CB /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 63AB9B9D2B772A430028C6CB /* SDWebImageMapKit */; };
+		63AB9BA52B7835070028C6CB /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AB9BA42B7835070028C6CB /* Endpoint.swift */; };
+		63AB9BA72B7835C50028C6CB /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AB9BA62B7835C50028C6CB /* HTTPMethod.swift */; };
+		63AB9BAA2B7836660028C6CB /* RequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AB9BA92B7836660028C6CB /* RequestError.swift */; };
+		63AB9BAC2B78369F0028C6CB /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AB9BAB2B78369F0028C6CB /* HTTPClient.swift */; };
+		63AB9BAE2B7839490028C6CB /* PostsEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AB9BAD2B7839490028C6CB /* PostsEndpoint.swift */; };
+		63AB9BB02B783C3C0028C6CB /* PostsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AB9BAF2B783C3C0028C6CB /* PostsService.swift */; };
 		63B908B92B76AED50007E37D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B908B82B76AED50007E37D /* AppDelegate.swift */; };
 		63B908BB2B76AED50007E37D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B908BA2B76AED50007E37D /* SceneDelegate.swift */; };
 		63B908BD2B76AED50007E37D /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B908BC2B76AED50007E37D /* PostViewController.swift */; };
@@ -20,6 +26,12 @@
 
 /* Begin PBXFileReference section */
 		63AB9B982B7721E10028C6CB /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		63AB9BA42B7835070028C6CB /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		63AB9BA62B7835C50028C6CB /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		63AB9BA92B7836660028C6CB /* RequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestError.swift; sourceTree = "<group>"; };
+		63AB9BAB2B78369F0028C6CB /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
+		63AB9BAD2B7839490028C6CB /* PostsEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsEndpoint.swift; sourceTree = "<group>"; };
+		63AB9BAF2B783C3C0028C6CB /* PostsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsService.swift; sourceTree = "<group>"; };
 		63B908B52B76AED50007E37D /* RedditReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RedditReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63B908B82B76AED50007E37D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		63B908BA2B76AED50007E37D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +63,50 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		63AB9B9F2B7834B40028C6CB /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		63AB9BA02B7834C60028C6CB /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				63AB9BA32B7834EA0028C6CB /* Services */,
+				63AB9BA22B7834E20028C6CB /* Endpoints */,
+				63AB9BA12B7834DC0028C6CB /* Base */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		63AB9BA12B7834DC0028C6CB /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				63AB9BA42B7835070028C6CB /* Endpoint.swift */,
+				63AB9BA62B7835C50028C6CB /* HTTPMethod.swift */,
+				63AB9BA92B7836660028C6CB /* RequestError.swift */,
+				63AB9BAB2B78369F0028C6CB /* HTTPClient.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		63AB9BA22B7834E20028C6CB /* Endpoints */ = {
+			isa = PBXGroup;
+			children = (
+				63AB9BAD2B7839490028C6CB /* PostsEndpoint.swift */,
+			);
+			path = Endpoints;
+			sourceTree = "<group>";
+		};
+		63AB9BA32B7834EA0028C6CB /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				63AB9BAF2B783C3C0028C6CB /* PostsService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		63B908AC2B76AED50007E37D = {
 			isa = PBXGroup;
 			children = (
@@ -70,6 +126,8 @@
 		63B908B72B76AED50007E37D /* RedditReader */ = {
 			isa = PBXGroup;
 			children = (
+				63AB9BA02B7834C60028C6CB /* Network */,
+				63AB9B9F2B7834B40028C6CB /* Controllers */,
 				63AB9B972B7721770028C6CB /* Models */,
 				63B908B82B76AED50007E37D /* AppDelegate.swift */,
 				63B908BA2B76AED50007E37D /* SceneDelegate.swift */,
@@ -160,10 +218,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63AB9BAA2B7836660028C6CB /* RequestError.swift in Sources */,
 				63B908BD2B76AED50007E37D /* PostViewController.swift in Sources */,
+				63AB9BAC2B78369F0028C6CB /* HTTPClient.swift in Sources */,
 				63B908B92B76AED50007E37D /* AppDelegate.swift in Sources */,
+				63AB9BA72B7835C50028C6CB /* HTTPMethod.swift in Sources */,
+				63AB9BB02B783C3C0028C6CB /* PostsService.swift in Sources */,
 				63B908BB2B76AED50007E37D /* SceneDelegate.swift in Sources */,
 				63AB9B992B7721E10028C6CB /* Post.swift in Sources */,
+				63AB9BA52B7835070028C6CB /* Endpoint.swift in Sources */,
+				63AB9BAE2B7839490028C6CB /* PostsEndpoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

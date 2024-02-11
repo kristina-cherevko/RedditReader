@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_72" orientation="portrait" appearance="light"/>
+    <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -14,11 +15,11 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="PostViewController" customModule="RedditReader" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gTG-Ju-jSP">
-                                <rect key="frame" x="0.0" y="321" width="430" height="315.33333333333326"/>
+                                <rect key="frame" x="0.0" y="322.66666666666669" width="428" height="294.00000000000006"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XGk-Lj-N7G">
                                         <rect key="frame" x="10" y="0.0" width="77.333333333333329" height="19.333333333333332"/>
@@ -51,22 +52,22 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kYx-5K-wPe">
-                                        <rect key="frame" x="389.33333333333331" y="-7" width="40.666666666666686" height="33.333333333333336"/>
-                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <rect key="frame" x="387.33333333333331" y="-7" width="40.666666666666686" height="33.333333333333336"/>
+                                        <color key="tintColor" systemColor="labelColor"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain">
                                             <imageReference key="image" image="bookmark" catalog="system" symbolScale="default"/>
                                             <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="16" scale="medium"/>
                                         </buttonConfiguration>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The 6 Most Intriguing Things We Learned about Pet Cats and Dogs This Year" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aHK-PX-dQP">
-                                        <rect key="frame" x="16" y="29.333333333333314" width="398" height="43"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My title" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aHK-PX-dQP">
+                                        <rect key="frame" x="16" y="29.333333333333314" width="396" height="21.666666666666671"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="kittens" translatesAutoresizingMaskIntoConstraints="NO" id="Ai9-dn-HuE">
-                                        <rect key="frame" x="16" y="87.333333333333314" width="398" height="164"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ai9-dn-HuE">
+                                        <rect key="frame" x="16" y="66" width="396" height="164"/>
                                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="164" id="pDf-Ll-un4"/>
@@ -77,44 +78,62 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="RLc-QG-w82">
-                                        <rect key="frame" x="16" y="261.33333333333337" width="253" height="44"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="RLc-QG-w82">
+                                        <rect key="frame" x="16" y="239.99999999999994" width="396" height="44"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4pq-IX-8U8">
-                                                <rect key="frame" x="0.0" y="4.6666666666666288" width="65" height="34.333333333333336"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="121.33333333333333" height="44"/>
+                                                <color key="backgroundColor" red="0.91764705882352937" green="0.92941176470588238" blue="0.93725490196078431" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="14" imagePadding="8">
+                                                <inset key="contentEdgeInsets" minX="4" minY="8" maxX="4" maxY="8"/>
+                                                <inset key="titleEdgeInsets" minX="4" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="4" maxY="0.0"/>
+                                                <state key="normal" title="10">
                                                     <imageReference key="image" image="arrowshape.up" catalog="system" symbolScale="small"/>
-                                                    <backgroundConfiguration key="background" cornerRadius="20">
-                                                        <color key="backgroundColor" red="0.91850537060000004" green="0.929503262" blue="0.93715208770000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                    </backgroundConfiguration>
-                                                    <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="15"/>
-                                                </buttonConfiguration>
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="17"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="20"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CM9-4l-DmS">
-                                                <rect key="frame" x="81" y="4.6666666666666288" width="67" height="34.333333333333336"/>
+                                                <rect key="frame" x="137.33333333333334" y="0.0" width="121.33333333333334" height="44"/>
+                                                <color key="backgroundColor" red="0.91475176810000003" green="0.92950642110000004" blue="0.93712967629999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="10" imagePadding="8">
+                                                <inset key="contentEdgeInsets" minX="4" minY="8" maxX="4" maxY="8"/>
+                                                <inset key="titleEdgeInsets" minX="4" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="4" maxY="0.0"/>
+                                                <state key="normal" title="10">
                                                     <imageReference key="image" image="bubble" catalog="system" symbolScale="small"/>
-                                                    <backgroundConfiguration key="background" cornerRadius="20">
-                                                        <color key="backgroundColor" red="0.91850537060000004" green="0.929503262" blue="0.93715208770000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                    </backgroundConfiguration>
-                                                    <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="15"/>
-                                                </buttonConfiguration>
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="20"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7fj-S3-tdf">
-                                                <rect key="frame" x="164" y="4.6666666666666288" width="89" height="34.333333333333336"/>
+                                                <rect key="frame" x="274.66666666666669" y="0.0" width="121.33333333333331" height="44"/>
+                                                <color key="backgroundColor" red="0.91475176810000003" green="0.92950642110000004" blue="0.93712967629999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="Share" imagePadding="8">
+                                                <inset key="contentEdgeInsets" minX="4" minY="8" maxX="4" maxY="8"/>
+                                                <inset key="titleEdgeInsets" minX="4" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="4" maxY="0.0"/>
+                                                <state key="normal" title="Share">
                                                     <imageReference key="image" image="square.and.arrow.up" catalog="system" symbolScale="small"/>
-                                                    <backgroundConfiguration key="background" cornerRadius="20">
-                                                        <color key="backgroundColor" red="0.91850537060000004" green="0.929503262" blue="0.93715208770000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                    </backgroundConfiguration>
-                                                    <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="15"/>
-                                                </buttonConfiguration>
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="20"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -126,6 +145,7 @@
                                 <constraints>
                                     <constraint firstItem="Ai9-dn-HuE" firstAttribute="top" secondItem="aHK-PX-dQP" secondAttribute="bottom" constant="15" id="0AJ-OM-uup" userLabel="Image View.top = The 6 Most Intriguing Things We Learned about Pet Cats and Dogs This Year.bottom + 10"/>
                                     <constraint firstItem="ndI-aZ-rh4" firstAttribute="top" secondItem="gTG-Ju-jSP" secondAttribute="top" id="25O-gQ-gHq"/>
+                                    <constraint firstAttribute="trailing" secondItem="RLc-QG-w82" secondAttribute="trailing" constant="16" id="5DL-hs-A2D"/>
                                     <constraint firstItem="XWl-rr-klL" firstAttribute="top" secondItem="gTG-Ju-jSP" secondAttribute="top" id="ATE-4z-5N3"/>
                                     <constraint firstAttribute="bottom" secondItem="RLc-QG-w82" secondAttribute="bottom" constant="10" id="BEq-7t-JO1"/>
                                     <constraint firstItem="Ai9-dn-HuE" firstAttribute="leading" secondItem="gTG-Ju-jSP" secondAttribute="leading" constant="16" id="CZt-Ax-2OX"/>
@@ -159,7 +179,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="bookmarkLabel" destination="kYx-5K-wPe" id="fvB-s9-JxS"/>
+                        <outlet property="bookmarkButton" destination="kYx-5K-wPe" id="j7F-Gj-m2Z"/>
                         <outlet property="commentsCount" destination="CM9-4l-DmS" id="vGy-Sf-ZeB"/>
                         <outlet property="createdAt" destination="ndI-aZ-rh4" id="svf-rs-wSO"/>
                         <outlet property="domain" destination="XWl-rr-klL" id="ynS-nN-rs8"/>
@@ -172,20 +192,22 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3.8167938931297707" y="-27.464788732394368"/>
+            <point key="canvasLocation" x="2.7906976744186047" y="-27.682403433476395"/>
         </scene>
     </scenes>
     <resources>
         <image name="arrowshape.up" catalog="system" width="123" height="128"/>
         <image name="bookmark" catalog="system" width="110" height="128"/>
         <image name="bubble" catalog="system" width="128" height="110"/>
-        <image name="kittens" width="643" height="360"/>
         <image name="square.and.arrow.up" catalog="system" width="108" height="128"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray6Color">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

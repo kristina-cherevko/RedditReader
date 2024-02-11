@@ -7,13 +7,78 @@
 
 import Foundation
 
-struct Post {
-    var username: String
-    var createdAt: Date
-    var domain: String
-    var title: String
-    var rating: Int
-    var commentsCount: Int
-    var saved: Bool = false
-    var image: String
+//struct Post: Codable {
+//    var kind: String
+//    var data: String
+//    var author_fullname: String
+//    var created: Date
+//    var domain: String
+//    var title: String
+//    var ups: Int
+//    var downs: Int
+//    var num_comments: Int
+//    var saved: Bool = false
+//    var images: String
+//}
+
+// MARK: - Post
+struct Post: Codable {
+    let kind: String
+    let data: DataClass
+}
+
+// MARK: - DataClass
+struct DataClass: Codable {
+    let after: String
+    let children: [Child]
+
+    enum CodingKeys: String, CodingKey {
+        case after
+        case children
+    }
+}
+
+// MARK: - Child
+struct Child: Codable {
+    let kind: String
+    let data: ChildData
+}
+
+// MARK: - ChildData
+struct ChildData: Codable {
+    let authorFullname: String
+    let title: String
+    let downs: Int
+    let ups: Int
+    let created: Int
+    let domain: String
+    let preview: Preview?
+    let numComments: Int
+    let saved: Bool = Bool.random()
+
+    enum CodingKeys: String, CodingKey {
+        case authorFullname = "author_fullname"
+        case title
+        case downs
+        case ups
+        case created
+        case domain
+        case preview
+        case numComments = "num_comments"
+    }
+}
+
+// MARK: - Preview
+struct Preview: Codable {
+    let images: [Image]
+}
+
+// MARK: - Image
+struct Image: Codable {
+    let source: Source
+}
+
+// MARK: - Source
+struct Source: Codable {
+    let url: String
 }
