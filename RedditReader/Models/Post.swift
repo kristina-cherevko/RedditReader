@@ -60,11 +60,12 @@ struct ChildData: Codable {
         case authorFullname = "author_fullname"
         case title
         case downs
-        case ups
+        case ups = "ups"
         case created
         case domain
         case preview
         case numComments = "num_comments"
+        case saved
     }
 }
 

@@ -31,7 +31,7 @@ class PostViewController: UIViewController {
     
     func fetchPostDetail() {
         Task(priority: .userInitiated) {
-            let result = await postsService.getPostDetail(subreddit: "funny", limit: 1, after: nil)
+            let result = await postsService.getPostDetail(subreddit: "ios", limit: 1, after: nil)
             switch result {
             case .success(let post):
                 self.updatePostView(with: post.data.children.first?.data)
