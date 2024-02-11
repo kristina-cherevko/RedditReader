@@ -8,11 +8,11 @@
 import Foundation
 
 protocol PostsServiceable {
-    func getPostDetail(subreddit: String, limit: Int, after: String?) async -> Result<Post, RequestError>
+    func getPostDetail(subreddit: String, limit: Int, after: String?) async -> Result<PostData, RequestError>
 }
 
 struct PostsService: HTTPClient, PostsServiceable {
-    func getPostDetail(subreddit: String, limit: Int, after: String?) async -> Result<Post, RequestError> {
-        return await sendRequest(endpoint: PostsEndpoint.postRow(subreddit: subreddit, limit: limit, after: after), responseModel: Post.self)
+    func getPostDetail(subreddit: String, limit: Int, after: String?) async -> Result<PostData, RequestError> {
+        return await sendRequest(endpoint: PostsEndpoint.postRow(subreddit: subreddit, limit: limit, after: after), responseModel: PostData.self)
     }
 }

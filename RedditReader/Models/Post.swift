@@ -22,7 +22,7 @@ import Foundation
 //}
 
 // MARK: - Post
-struct Post: Codable {
+struct PostData: Codable {
     let kind: String
     let data: DataClass
 }
@@ -41,11 +41,11 @@ struct DataClass: Codable {
 // MARK: - Child
 struct Child: Codable {
     let kind: String
-    let data: ChildData
+    let data: Post
 }
 
 // MARK: - ChildData
-struct ChildData: Codable {
+struct Post: Codable {
     let authorFullname: String
     let title: String
     let downs: Int
@@ -54,7 +54,7 @@ struct ChildData: Codable {
     let domain: String
     let preview: Preview?
     let numComments: Int
-    let saved: Bool = Bool.random()
+    var saved: Bool = Bool.random()
 
     enum CodingKeys: String, CodingKey {
         case authorFullname = "author_fullname"

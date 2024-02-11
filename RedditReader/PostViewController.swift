@@ -22,27 +22,40 @@ class PostViewController: UIViewController {
     
     let postsService = PostsService()
     
+    var post: Post?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         fetchPostDetail()
+        bookmarkButton.addTarget(self, action: #selector(bookmarkButtonTapped), for: .touchUpInside)
+                
+    }
+    
+    @objc private func bookmarkButtonTapped() {
+        let isSaved = post?.saved
+        post?.saved = !isSaved!
+        let bookmarkImage = post!.saved ? UIImage(systemName: "bookmark.fill") : UIImage(systemName: "bookmark")
+        bookmarkButton.setImage(bookmarkImage, for: .normal)
     }
     
     func fetchPostDetail() {
         Task(priority: .userInitiated) {
             let result = await postsService.getPostDetail(subreddit: "ios", limit: 1, after: nil)
             switch result {
-            case .success(let post):
-                self.updatePostView(with: post.data.children.first?.data)
+            case .success(let postData):
+                post = postData.data.children.first?.data
+                self.updatePostView(with: post)
             case .failure(let error):
                 print("Failed to fetch post detail: \(error)")
             }
             
         }
     }
+    
+    
 
-    func updatePostView(with post: ChildData?) {
+    func updatePostView(with post: Post?) {
         guard let post = post else {
             return
         }
@@ -64,7 +77,7 @@ class PostViewController: UIViewController {
     
 
     
-    func formatImageUrl(in post: ChildData) -> String? {
+    func formatImageUrl(in post: Post) -> String? {
         if let initialImageUrl = post.preview?.images.first?.source.url {
             print(initialImageUrl)
             return initialImageUrl.replacingOccurrences(of: "&amp;", with: "&")
