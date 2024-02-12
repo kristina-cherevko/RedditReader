@@ -25,10 +25,7 @@ extension HTTPClient {
         guard let url = urlComponents.url else {
             return .failure(.invalidURL)
         }
-        
-//        URLCache.shared = URLCache(memoryCapacity: 0, diskCapacity: 0, diskPath: nil)
-
-        
+         
         var request = URLRequest(url: url)
         request.httpMethod = endpoint.type.rawValue
         request.allHTTPHeaderFields = endpoint.header
@@ -36,7 +33,6 @@ extension HTTPClient {
         if let body = endpoint.body {
             request.httpBody = try? JSONSerialization.data(withJSONObject: body, options: [])
         }
-        print("request is = \(request)")
         do {
             let (data, response) = try await URLSession.shared.data(for: request, delegate: nil)
             
@@ -49,7 +45,6 @@ extension HTTPClient {
                 guard let decodedResponse = try? JSONDecoder().decode(responseModel, from: data) else {
                     return .failure(.decode)
                 }
-                print("response is = \(decodedResponse)")
                 return .success(decodedResponse)
             case 401:
                 return .failure(.unauthorized)

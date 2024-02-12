@@ -27,19 +27,13 @@ class PostViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        fetchPostDetail()
+        fetchPosts()
         bookmarkButton.addTarget(self, action: #selector(bookmarkButtonTapped), for: .touchUpInside)
                 
     }
     
-    @objc private func bookmarkButtonTapped() {
-        let isSaved = post?.saved
-        post?.saved = !isSaved!
-        let bookmarkImage = post!.saved ? UIImage(systemName: "bookmark.fill") : UIImage(systemName: "bookmark")
-        bookmarkButton.setImage(bookmarkImage, for: .normal)
-    }
-    
-    func fetchPostDetail() {
+//  MARK: request posts data
+    func fetchPosts() {
         Task(priority: .userInitiated) {
             let result = await postsService.getPostDetail(subreddit: "ios", limit: 1, after: nil)
             switch result {
@@ -53,8 +47,14 @@ class PostViewController: UIViewController {
         }
     }
     
+//  MARK: button click handler
+    @objc private func bookmarkButtonTapped() {
+        post?.saved.toggle()
+        let bookmarkImage = post!.saved ? UIImage(systemName: "bookmark.fill") : UIImage(systemName: "bookmark")
+        bookmarkButton.setImage(bookmarkImage, for: .normal)
+    }
     
-
+//  MARK: function to update UI after request
     func updatePostView(with post: Post?) {
         guard let post = post else {
             return
@@ -62,7 +62,6 @@ class PostViewController: UIViewController {
         username.text = post.authorFullname
         domain.text = post.domain
         postTitle.text = post.title
-        print("\(post.numComments)")
         rating.setTitle(String(post.ups - post.downs), for: .normal)
         commentsCount.setTitle(String(post.numComments), for: .normal)
         createdAt.text = "\(Int((Int(Date().timeIntervalSince1970) - post.created) / 3600))h ago"
@@ -76,10 +75,9 @@ class PostViewController: UIViewController {
     }
     
 
-    
+//  MARK: format image URL
     func formatImageUrl(in post: Post) -> String? {
         if let initialImageUrl = post.preview?.images.first?.source.url {
-            print(initialImageUrl)
             return initialImageUrl.replacingOccurrences(of: "&amp;", with: "&")
         }
         return nil
