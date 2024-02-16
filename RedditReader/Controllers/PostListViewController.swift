@@ -72,7 +72,7 @@ class PostListViewController: UIViewController, UITableViewDataSource, UITableVi
 //        print("Prefetch: \(indexPaths)")
         // Check if it's not the first request and 'after' is nil
         if !isFirstRequest && after == nil {
-            print("No 'after' value provided. Stopping further requests.")
+            print("'after' is nil in non-initial commit. Stopping further requests.")
             return
         }
         
