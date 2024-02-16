@@ -7,29 +7,15 @@
 
 import Foundation
 
-//struct Post: Codable {
-//    var kind: String
-//    var data: String
-//    var author_fullname: String
-//    var created: Date
-//    var domain: String
-//    var title: String
-//    var ups: Int
-//    var downs: Int
-//    var num_comments: Int
-//    var saved: Bool = false
-//    var images: String
-//}
 
-// MARK: - Post
+// MARK: - PostData
 struct PostData: Codable {
-    let kind: String
     let data: DataClass
 }
 
 // MARK: - DataClass
 struct DataClass: Codable {
-    let after: String
+    let after: String?
     let children: [Child]
 
     enum CodingKeys: String, CodingKey {
@@ -40,12 +26,12 @@ struct DataClass: Codable {
 
 // MARK: - Child
 struct Child: Codable {
-    let kind: String
     let data: Post
 }
 
-// MARK: - ChildData
+// MARK: - Post
 struct Post: Codable {
+    let subreddit: String
     let authorFullname: String
     let title: String
     let downs: Int
@@ -57,6 +43,7 @@ struct Post: Codable {
     var saved: Bool = Bool.random()
 
     enum CodingKeys: String, CodingKey {
+        case subreddit
         case authorFullname = "author_fullname"
         case title
         case downs
