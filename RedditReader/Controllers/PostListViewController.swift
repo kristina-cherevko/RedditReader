@@ -8,7 +8,7 @@
 import UIKit
 
 
-class PostListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITableViewDataSourcePrefetching {
+class PostListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var postsTable: UITableView!
     
@@ -36,7 +36,7 @@ class PostListViewController: UIViewController, UITableViewDataSource, UITableVi
         
         postsTable.dataSource = self
         postsTable.delegate = self
-        postsTable.prefetchDataSource = self
+//        postsTable.prefetchDataSource = self
         
         self.title = "/r/\(subreddit)"
         let filterIcon = UIImage(systemName: "slider.horizontal.3")
@@ -68,22 +68,19 @@ class PostListViewController: UIViewController, UITableViewDataSource, UITableVi
         return cell
     }
     
-    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
-//        print("Prefetch: \(indexPaths)")
-        // Check if it's not the first request and 'after' is nil
-        if !isFirstRequest && after == nil {
-            print("'after' is nil in non-initial commit. Stopping further requests.")
-            return
-        }
-        
-        if let lastIndexPath = indexPaths.last, lastIndexPath.row == posts.count - 1 {
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let position = scrollView.contentOffset.y
+        if position > (postsTable.contentSize.height - 330 - scrollView.frame.size.height) {
+            if !isFirstRequest && after == nil {
+                print("'after' is nil in non-initial commit. Stopping further requests.")
+                return
+            }
             if !isLoading {
-                isLoading = true
                 getPosts(subreddit: subreddit, limit: 10, after: after)
             }
         }
     }
-    
     
 //  MARK: pass data to PostDetailsViewController
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -99,6 +96,7 @@ class PostListViewController: UIViewController, UITableViewDataSource, UITableVi
     
 //  MARK: request posts data
     func getPosts(subreddit: String, limit: Int, after: String?) {
+        isLoading = true
         Task(priority: .background) {
 //            print("after is \(after)")
             let result = await postsService.getPostDetail(subreddit: subreddit, limit: limit, after: after)
@@ -106,11 +104,12 @@ class PostListViewController: UIViewController, UITableViewDataSource, UITableVi
             case .success(let postData):
                 self.after = postData.data.after
                 self.posts.append(contentsOf: postData.data.children.map { $0.data })
-//                DispatchQueue.main.async {
-                self.postsTable.reloadData()
+                DispatchQueue.main.async {
+                    self.postsTable.reloadData()
+                }
                 self.isLoading = false
                 self.isFirstRequest = false
-//                }
+
             case .failure(let error):
                 print("Failed to fetch post detail: \(error)")
             }

@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="44a-aX-8gu" customClass="PostDetailsView" customModule="RedditReader" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="103" width="320" height="330"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="330"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                         </subviews>
@@ -27,7 +27,6 @@
                             <constraint firstItem="oKi-5z-4bo" firstAttribute="trailing" secondItem="44a-aX-8gu" secondAttribute="trailing" id="05N-k6-ZfY"/>
                             <constraint firstItem="44a-aX-8gu" firstAttribute="top" secondItem="oKi-5z-4bo" secondAttribute="top" id="fBm-Um-B5d"/>
                             <constraint firstItem="44a-aX-8gu" firstAttribute="leading" secondItem="oKi-5z-4bo" secondAttribute="leading" id="kVF-Pi-jpi"/>
-                            <constraint firstItem="44a-aX-8gu" firstAttribute="bottom" relation="lessThanOrEqual" secondItem="oKi-5z-4bo" secondAttribute="bottom" priority="990" id="wgc-kU-1pA"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Xw3-4p-Cr8"/>
