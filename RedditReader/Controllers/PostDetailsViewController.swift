@@ -36,7 +36,7 @@ class PostDetailsViewController: UIViewController {
                 postDetailsView.postImage.image = UIImage(named: "placeholder-image.png")
             }
         }
-        print("PostDetailsViewCOntroller finished loading")
+//        print("PostDetailsViewCOntroller finished loading")
         postDetailsView.bookmarkButton.addTarget(self, action: #selector(bookmarkButtonTapped), for: .touchUpInside)
     }
     

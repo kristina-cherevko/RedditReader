@@ -16,17 +16,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="44a-aX-8gu" customClass="PostDetailsView" customModule="RedditReader" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="64" width="320" height="330"/>
+                            <view contentMode="scaleToFill" verticalCompressionResistancePriority="751" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="44a-aX-8gu" customClass="PostDetailsView" customModule="RedditReader" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="64" width="320" height="235"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="oKi-5z-4bo"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="oKi-5z-4bo" firstAttribute="trailing" secondItem="44a-aX-8gu" secondAttribute="trailing" id="05N-k6-ZfY"/>
-                            <constraint firstItem="44a-aX-8gu" firstAttribute="top" secondItem="oKi-5z-4bo" secondAttribute="top" id="fBm-Um-B5d"/>
-                            <constraint firstItem="44a-aX-8gu" firstAttribute="leading" secondItem="oKi-5z-4bo" secondAttribute="leading" id="kVF-Pi-jpi"/>
+                            <constraint firstItem="44a-aX-8gu" firstAttribute="trailing" secondItem="oKi-5z-4bo" secondAttribute="trailing" id="exc-dL-zZZ"/>
+                            <constraint firstItem="44a-aX-8gu" firstAttribute="leading" secondItem="oKi-5z-4bo" secondAttribute="leading" id="nDG-ji-Yxf"/>
+                            <constraint firstItem="44a-aX-8gu" firstAttribute="top" secondItem="oKi-5z-4bo" secondAttribute="top" id="p1m-AE-3oS"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Xw3-4p-Cr8"/>
@@ -36,14 +36,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mch-4u-ORg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="915.34883720930236" y="470.60085836909872"/>
+            <point key="canvasLocation" x="915" y="470.07042253521126"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fMK-oy-Sz4">
             <objects>
                 <navigationController id="32Z-en-DIQ" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="center" id="SMS-1z-bAK">
-                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="50"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <textAttributes key="titleTextAttributes">

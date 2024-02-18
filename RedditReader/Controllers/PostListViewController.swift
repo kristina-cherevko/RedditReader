@@ -36,16 +36,13 @@ class PostListViewController: UIViewController, UITableViewDataSource, UITableVi
         
         postsTable.dataSource = self
         postsTable.delegate = self
-//        postsTable.prefetchDataSource = self
         
         self.title = "/r/\(subreddit)"
         let filterIcon = UIImage(systemName: "slider.horizontal.3")
         let filterButton = UIBarButtonItem(image: filterIcon, style: .plain, target: self, action: #selector(filterButtonTapped))
         filterButton.tintColor = .white
         self.navigationItem.rightBarButtonItem = filterButton
-        
-//        isFirstRequest = true
-        
+                
         postsTable.estimatedRowHeight = 310
         postsTable.rowHeight = UITableView.automaticDimension
         
@@ -68,6 +65,14 @@ class PostListViewController: UIViewController, UITableViewDataSource, UITableVi
         return cell
     }
     
+    private func createSpinnerFooter() -> UIView {
+        let footerView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 100))
+        let spinner = UIActivityIndicatorView()
+        spinner.center = footerView.center
+        footerView.addSubview(spinner)
+        spinner.startAnimating()
+        return footerView
+    }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let position = scrollView.contentOffset.y
@@ -87,19 +92,18 @@ class PostListViewController: UIViewController, UITableViewDataSource, UITableVi
         if segue.identifier == "postDetailsSegue" {
            if let postDetailsVC = segue.destination as? PostDetailsViewController,
               let selectedRow = postsTable.indexPathForSelectedRow?.row {
-//               print(posts[selectedRow])
                postDetailsVC.post = posts[selectedRow]
            }
        }
     }
     
-    
 //  MARK: request posts data
     func getPosts(subreddit: String, limit: Int, after: String?) {
         isLoading = true
+        self.postsTable.tableFooterView = createSpinnerFooter()
         Task(priority: .background) {
-//            print("after is \(after)")
             let result = await postsService.getPostDetail(subreddit: subreddit, limit: limit, after: after)
+            self.postsTable.tableFooterView = nil
             switch result {
             case .success(let postData):
                 self.after = postData.data.after

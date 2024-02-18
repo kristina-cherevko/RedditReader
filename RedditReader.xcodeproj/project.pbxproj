@@ -74,6 +74,8 @@
 		63AB9B9F2B7834B40028C6CB /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				63D7B5372B7D897900C15581 /* PostDetailsView.xib */,
+				63D7B5352B7D892B00C15581 /* PostDetailsView.swift */,
 				63B908BC2B76AED50007E37D /* PostDetailsViewController.swift */,
 				63D7B5392B7D912A00C15581 /* PostListViewController.swift */,
 				63D7B53B2B7DB66100C15581 /* PostDetailsCell.swift */,
@@ -146,8 +148,6 @@
 				63B908C12B76AED60007E37D /* Assets.xcassets */,
 				63B908C32B76AED60007E37D /* LaunchScreen.storyboard */,
 				63B908C62B76AED60007E37D /* Info.plist */,
-				63D7B5352B7D892B00C15581 /* PostDetailsView.swift */,
-				63D7B5372B7D897900C15581 /* PostDetailsView.xib */,
 			);
 			path = RedditReader;
 			sourceTree = "<group>";
