@@ -32,7 +32,7 @@ struct Child: Codable {
 // MARK: - Post
 struct Post: Codable {
     let subreddit: String
-    let authorFullname: String
+    let authorFullname: String?
     let title: String
     let downs: Int
     let ups: Int

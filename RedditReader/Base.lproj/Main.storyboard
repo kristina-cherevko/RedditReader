@@ -43,7 +43,7 @@
             <objects>
                 <navigationController id="32Z-en-DIQ" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="center" id="SMS-1z-bAK">
-                        <rect key="frame" x="0.0" y="20" width="320" height="50"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <textAttributes key="titleTextAttributes">
@@ -91,7 +91,6 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="postCellView" destination="jpt-wc-ahY" id="Frd-33-w2y"/>
-                                            <segue destination="qkS-GC-P77" kind="show" identifier="postDetailsSegue" id="XvJ-Vd-529"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

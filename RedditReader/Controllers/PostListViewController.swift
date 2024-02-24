@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 class PostListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var postsTable: UITableView!
@@ -33,6 +32,7 @@ class PostListViewController: UIViewController, UITableViewDataSource, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        posts = PostDataManager.shared.loadPosts()
         
         postsTable.dataSource = self
         postsTable.delegate = self
@@ -60,9 +60,14 @@ class PostListViewController: UIViewController, UITableViewDataSource, UITableVi
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as! PostDetailsCell
         let rowData = posts[indexPath.row]
-        cell.configure(for: rowData)
-        
+        cell.configure(with: rowData, delegate: self)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let postDetailsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PostDetailsViewController") as! PostDetailsViewController
+        postDetailsVC.post = posts[indexPath.row]
+        navigationController?.pushViewController(postDetailsVC, animated: true)
     }
     
     private func createSpinnerFooter() -> UIView {
@@ -75,12 +80,11 @@ class PostListViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if !isFirstRequest && after == nil {
+            return
+        }
         let position = scrollView.contentOffset.y
         if position > (postsTable.contentSize.height - 330 - scrollView.frame.size.height) {
-            if !isFirstRequest && after == nil {
-                print("'after' is nil in non-initial commit. Stopping further requests.")
-                return
-            }
             if !isLoading {
                 getPosts(subreddit: subreddit, limit: 10, after: after)
             }
@@ -88,14 +92,14 @@ class PostListViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
 //  MARK: pass data to PostDetailsViewController
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "postDetailsSegue" {
-           if let postDetailsVC = segue.destination as? PostDetailsViewController,
-              let selectedRow = postsTable.indexPathForSelectedRow?.row {
-               postDetailsVC.post = posts[selectedRow]
-           }
-       }
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "postDetailsSegue" {
+//           if let postDetailsVC = segue.destination as? PostDetailsViewController,
+//              let selectedRow = postsTable.indexPathForSelectedRow?.row {
+//               postDetailsVC.post = posts[selectedRow]
+//           }
+//       }
+//    }
     
 //  MARK: request posts data
     func getPosts(subreddit: String, limit: Int, after: String?) {
@@ -119,4 +123,36 @@ class PostListViewController: UIViewController, UITableViewDataSource, UITableVi
             }
         }
     }
+    
+
+}
+
+
+extension PostListViewController: PostDetailsViewDelegate {
+    func saveButtonTapped(for post: Post) {
+        print("save button tapped in view controller or cell")
+        if PostRepository.shared.isPostSaved(post) {
+            PostRepository.shared.unsavePost(post)
+        } else {
+            PostRepository.shared.savePost(post)
+        }
+        print("posts \(posts)")
+//        posts = postRepository.getPosts()
+        DispatchQueue.main.async {
+            self.postsTable.reloadData()
+        }
+    }
+ 
+}
+
+extension PostDetailsViewDelegate where Self: UIViewController {
+    
+    func shareButtonTapped(for post: Post) {
+        print("hello world in share button in cell!")
+        let items = [URL(string: "https://www.reddit.com/r/ios/top.json")!]
+        let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
+        present(ac, animated: true)
+    }
+    
+  
 }

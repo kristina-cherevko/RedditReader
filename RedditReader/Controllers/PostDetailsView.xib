@@ -28,7 +28,7 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="392"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A7t-ml-5CF">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="249" text="username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A7t-ml-5CF">
                     <rect key="frame" x="16" y="69" width="77.333333333333329" height="19.333333333333329"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                     <nil key="textColor"/>
@@ -64,7 +64,7 @@
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" image="bookmark" catalog="system"/>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="249" text="My very very very very very very very long title" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a7g-Gh-Q7u">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="My very very very very very very very long title" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a7g-Gh-Q7u">
                     <rect key="frame" x="16" y="98.333333333333329" width="361" height="44.666666666666671"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                     <nil key="textColor"/>
@@ -152,6 +152,7 @@
                 <constraint firstItem="a7g-Gh-Q7u" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="XYw-Bf-AO9"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="aL4-VV-WVe" secondAttribute="trailing" constant="16" id="cWN-kt-gwz"/>
                 <constraint firstItem="ta7-58-A05" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="10" id="d2O-FW-eiG"/>
+                <constraint firstItem="a7g-Gh-Q7u" firstAttribute="top" secondItem="RUG-74-KqU" secondAttribute="bottom" constant="10" id="e1i-oh-G3C"/>
                 <constraint firstItem="ta7-58-A05" firstAttribute="leading" secondItem="rpH-xg-gb5" secondAttribute="trailing" constant="8" id="eFI-60-heS"/>
                 <constraint firstItem="RUG-74-KqU" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="10" id="i3J-an-Za9"/>
                 <constraint firstItem="a7g-Gh-Q7u" firstAttribute="top" secondItem="A7t-ml-5CF" secondAttribute="bottom" constant="10" id="ism-Ee-VOz"/>
@@ -161,6 +162,7 @@
                 <constraint firstAttribute="bottom" secondItem="LhT-B7-0Cm" secondAttribute="bottom" constant="10" id="ujH-in-Nuh"/>
                 <constraint firstItem="BiV-HQ-pFZ" firstAttribute="leading" secondItem="A7t-ml-5CF" secondAttribute="trailing" constant="8" id="vZD-es-oac"/>
                 <constraint firstItem="A7t-ml-5CF" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="10" id="vnd-LH-q9V"/>
+                <constraint firstItem="a7g-Gh-Q7u" firstAttribute="top" secondItem="rpH-xg-gb5" secondAttribute="bottom" constant="10" id="zta-Qe-GwB"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="-92.36641221374046" y="-171.83098591549296"/>
