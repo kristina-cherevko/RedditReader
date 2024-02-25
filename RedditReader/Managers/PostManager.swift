@@ -17,6 +17,7 @@ class PostDataManager {
     func savePosts(_ posts: [Post]) {
         do {
             let data = try JSONEncoder().encode(posts)
+            print("data in savePosts: \(data)")
             let documentsPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
 //            print("documents path \(documentsPath)")
             let postsUrl = documentsPath.appendingPathComponent(fileName)
@@ -37,7 +38,7 @@ class PostDataManager {
           if FileManager.default.fileExists(atPath: postsUrl.path) {
               let data = try Data(contentsOf: postsUrl)
               let posts = try JSONDecoder().decode([Post].self, from: data)
-//              print("finished loading posts: \(posts)")
+              print("finished loading \(posts) posts from file storage")
               return posts
           } else {
               let emptyPosts: [Post] = []

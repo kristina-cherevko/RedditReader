@@ -12,7 +12,7 @@ protocol PostDetailsViewDelegate: AnyObject {
     func saveButtonTapped(for post: Post)
 }
 
-class PostDetailsView: UIView {
+class PostView: UIView {
     let kCONTENT_XIB_NAME = "PostDetailsView"
 
     
@@ -56,6 +56,7 @@ class PostDetailsView: UIView {
             self.rating.setTitle(String(post.ups - post.downs), for: .normal)
             self.commentsCount.setTitle(String(post.numComments), for: .normal)
             self.createdAt.text = "\(Int((Int(Date().timeIntervalSince1970) - post.created) / 3600))h ago"
+            
             let bookmarkImage = post.saved ? UIImage(systemName: "bookmark.fill") : UIImage(systemName: "bookmark")
             self.bookmarkButton.setImage(bookmarkImage, for: .normal)
             if let imageUrl = formatImageUrl(in: post) {
@@ -75,10 +76,8 @@ class PostDetailsView: UIView {
         post?.saved.toggle()
         let bookmarkImage = post!.saved ? UIImage(systemName: "bookmark.fill") : UIImage(systemName: "bookmark")
         self.bookmarkButton.setImage(bookmarkImage, for: .normal)
-        guard let post = post else {
-            return
-        }
-        delegate?.saveButtonTapped(for: post)
+//        print("post inPostView: \(post)")
+        delegate?.saveButtonTapped(for: post!)
     }
     
     @objc private func shareButtonTapped() {

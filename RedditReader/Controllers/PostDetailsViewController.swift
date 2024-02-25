@@ -9,8 +9,10 @@ import UIKit
 
 class PostDetailsViewController: UIViewController, PostDetailsViewDelegate {
    
-    @IBOutlet private weak var postDetailsView: PostDetailsView!
+    @IBOutlet private weak var postDetailsView: PostView!
     var post: Post?
+    var viewModel: PostsViewModel?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,11 +24,10 @@ class PostDetailsViewController: UIViewController, PostDetailsViewDelegate {
         
     func saveButtonTapped(for post: Post) {
         print("save button tapped in view controller")
-        if PostRepository.shared.isPostSaved(post) {
-            PostRepository.shared.unsavePost(post)
+        if viewModel!.isPostSaved(post) {
+            viewModel!.unsavePost(post)
         } else {
-            PostRepository.shared.savePost(post)
-
+            viewModel!.savePost(post)
         }
     }
 }

@@ -40,7 +40,8 @@ struct Post: Codable {
     let domain: String
     let preview: Preview?
     let numComments: Int
-    var saved: Bool = Bool.random()
+    var saved: Bool = false
+    var url: String?
 
     enum CodingKeys: String, CodingKey {
         case subreddit
@@ -53,6 +54,8 @@ struct Post: Codable {
         case preview
         case numComments = "num_comments"
         case saved
+        case url = "permalink"
+        
     }
 }
 

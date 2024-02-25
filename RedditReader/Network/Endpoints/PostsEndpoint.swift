@@ -12,7 +12,6 @@ enum PostsEndpoint {
 }
 
 extension PostsEndpoint: Endpoint {
-   
     
     var header: [String : String]? {
         nil

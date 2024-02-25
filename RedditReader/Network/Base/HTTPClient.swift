@@ -33,6 +33,7 @@ extension HTTPClient {
         if let body = endpoint.body {
             request.httpBody = try? JSONSerialization.data(withJSONObject: body, options: [])
         }
+        print(request)
         do {
             let (data, response) = try await URLSession.shared.data(for: request, delegate: nil)
             

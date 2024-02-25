@@ -7,9 +7,9 @@
 
 import UIKit
 
-class PostDetailsCell: UITableViewCell {
+class PostCell: UITableViewCell {
     
-    @IBOutlet private weak var postCellView: PostDetailsView!
+    @IBOutlet private weak var postCellView: PostView!
 //    private weak var delegate: PostDetailsViewDelegate?
     
     func configure(with post: Post?, delegate: PostDetailsViewDelegate?) {
