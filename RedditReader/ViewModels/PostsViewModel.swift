@@ -12,20 +12,25 @@ class PostsViewModel {
     let postDataManager = PostDataManager.shared
     
     var onPostsUpdated: (()->Void)?
-    var onLoadingStateChanged: ((Bool) -> Void)?
     
-    var isLoading: Bool = true 
-//    {
-//        didSet {
-//            onLoadingStateChanged?(isLoading)
-//        }
-//    }
+    var isLoading: Bool = true
     var isFirstRequest = true
     var subreddit: String
     var after: String?
-    private var posts: [Post] = [] {
+    var searchText: String?
+    var inSearchMode = false {
         didSet {
-            print("posts.count = \(posts.count)")
+            updateDisplayedPosts()
+        }
+    }
+    var allPosts: [Post] = [] {
+        didSet {
+            updateDisplayedPosts()
+        }
+    }
+    
+    var displayedPosts: [Post] = [] {
+        didSet {
             self.onPostsUpdated?()
         }
     }
@@ -34,20 +39,14 @@ class PostsViewModel {
         self.subreddit = subreddit
         self.isFirstRequest = false
         self.loadInitialPosts(subreddit: subreddit, limit: limit, after: after)
-//        self.loadPosts(subreddit: subreddit, limit: limit, after: after)
     }
     
-    
     func savePost(_ post: Post) {
-        print("saving post \(post)")
         var savedPosts = postDataManager.loadPosts()
         savedPosts.append(post)
         postDataManager.savePosts(savedPosts)
-        print("saved posts \(savedPosts)")
-        
-        if let index = self.posts.firstIndex(where: { $0.title == post.title && $0.authorFullname == post.authorFullname && $0.created == post.created }) {
-            self.posts[index] = post
-            print("saved posts length: \(postDataManager.loadPosts().count) \n\n new post in save \(post)\n\n my post in posts \(self.posts[index]) \n\n\n")
+        if let index = self.allPosts.firstIndex(where: { $0.title == post.title && $0.authorFullname == post.authorFullname && $0.created == post.created }) {
+            self.allPosts[index] = post
         }
     }
     
@@ -56,9 +55,8 @@ class PostsViewModel {
         savedPosts.append(contentsOf: posts)
         postDataManager.savePosts(savedPosts)
         for post in posts {
-            if let index = self.posts.firstIndex(where: { $0.title == post.title && $0.authorFullname == post.authorFullname && $0.created == post.created }) {
-                self.posts[index] = post
-                print("saved posts length: \(postDataManager.loadPosts().count)  \n\n new post in unsave \(post)\n\n my post in posts \(self.posts[index]) \n\n\n")
+            if let index = self.allPosts.firstIndex(where: { $0.title == post.title && $0.authorFullname == post.authorFullname && $0.created == post.created }) {
+                self.allPosts[index] = post
             }
         }
     }
@@ -67,13 +65,9 @@ class PostsViewModel {
         var savedPosts = postDataManager.loadPosts()
         savedPosts.removeAll(where: { $0.title == post.title && $0.authorFullname == post.authorFullname && $0.created == post.created })
         postDataManager.savePosts(savedPosts)
-        if let index = self.posts.firstIndex(where: { $0.title == post.title && $0.authorFullname == post.authorFullname && $0.created == post.created }) {
-               
-            self.posts[index] = post
-            print("saved posts length: \(postDataManager.loadPosts().count)  \n\n new post \(post)\n\n\n my post in posts \(self.posts[index]) \n\n\n")
+        if let index = self.allPosts.firstIndex(where: { $0.title == post.title && $0.authorFullname == post.authorFullname && $0.created == post.created }) {
+            self.allPosts[index] = post
         }
-        
-        print("hello in unsavePost")
     }
     
     func isPostSaved(_ post: Post) -> Bool {
@@ -83,29 +77,20 @@ class PostsViewModel {
     
     private func loadInitialPosts(subreddit: String, limit: Int, after: String?) {
         let savedPosts = postDataManager.loadPosts()
-        self.posts = savedPosts
-//        print(savedPosts[0].saved)
+        self.allPosts = savedPosts
+        self.displayedPosts = savedPosts
         loadPosts(subreddit: subreddit, limit: limit, after: after)
     }
     
     func loadPosts(subreddit: String, limit: Int, after: String?) {
         self.isLoading = true
-        print("Loading posts...\(isLoading)")
         Task {
             let result = await postsService.getPostDetail(subreddit: subreddit, limit: limit, after: after)
             switch result {
             case .success(let postData):
                 self.after = postData.data.after
                 handleLoadedPosts(postData.data.children.map{ $0.data })
-//                print(postData.data.children.count)
-                
-//                let savedPosts = self.postDataManager.loadPosts()
-//                self.posts.append(contentsOf: postData.data.children.map{ $0.data })
-//                mergePosts(with: savedPosts)
-//                print(self.posts)
                 self.isLoading = false
-                //                let mergedPosts = self.mergePosts(postData.data.children.map{ $0.data }, with: savedPosts)
-                print("Finished loading posts...\(isLoading)")
             case .failure(let error):
                 print("Failed to fetch post detail: \(error)")
             }
@@ -113,31 +98,43 @@ class PostsViewModel {
     }
     
     private func handleLoadedPosts(_ newPosts: [Post]) {
-//        let savedPosts = postDataManager.loadPosts()
-        var mergedPosts = self.posts
+        var mergedPosts = self.allPosts
         for newPost in newPosts {
-           if !posts.contains(where: { $0.title == newPost.title && $0.authorFullname == newPost.authorFullname && $0.created == newPost.created }) {
+           if !allPosts.contains(where: { $0.title == newPost.title && $0.authorFullname == newPost.authorFullname && $0.created == newPost.created }) {
                mergedPosts.append(newPost)
            }
         }
-        self.posts = mergedPosts
+        self.allPosts = mergedPosts
     }
     
-    private func mergePosts(with savedPosts: [Post]) {
-//        var mergedPosts = self.posts
-        for savedPost in savedPosts {
-            if let index = posts.firstIndex(where: {$0.title == savedPost.title && $0.authorFullname == savedPost.authorFullname && $0.created == savedPost.created }) {
-//                print(mergedPosts[index])
-                self.posts[index].saved = true
+    func updateDisplayedPosts() {
+        if inSearchMode {
+            if let searchText = self.searchText, !searchText.isEmpty {
+                displayedPosts = allPosts.filter { $0.saved && $0.title.lowercased().contains(searchText) }
             } else {
-//                print(savedPost)
-                self.posts.append(savedPost)
+                displayedPosts = allPosts.filter { $0.saved }
             }
+        } else {
+            self.displayedPosts = allPosts
         }
-
-    }
-    
-    func getPosts() -> [Post] {
-        return posts
     }
 }
+
+
+extension PostsViewModel {
+    
+    public func inSearchMode(isSearchBarShown: Bool, searchText: String?) -> Bool {
+        let isActive = isSearchBarShown
+        let searchText = searchText ?? ""
+        return isActive && !searchText.isEmpty
+    }
+    
+    public func updateSearchController(searchBarText: String?) {
+        self.searchText = searchBarText?.lowercased()
+        updateDisplayedPosts()
+    }
+}
+
+
+
+

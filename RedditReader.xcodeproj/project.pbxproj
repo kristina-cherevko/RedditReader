@@ -28,6 +28,7 @@
 		63D7B53C2B7DB66100C15581 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D7B53B2B7DB66100C15581 /* PostCell.swift */; };
 		63D91CF52B87AACA00F25C4B /* PostManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D91CF42B87AACA00F25C4B /* PostManager.swift */; };
 		63D91CF82B8A4A5900F25C4B /* PostsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D91CF72B8A4A5900F25C4B /* PostsViewModel.swift */; };
+		63D91D1D2B8FF5BE00F25C4B /* BookmarkIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D91D1C2B8FF5BE00F25C4B /* BookmarkIconView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		63D7B53B2B7DB66100C15581 /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		63D91CF42B87AACA00F25C4B /* PostManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostManager.swift; sourceTree = "<group>"; };
 		63D91CF72B8A4A5900F25C4B /* PostsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsViewModel.swift; sourceTree = "<group>"; };
+		63D91D1C2B8FF5BE00F25C4B /* BookmarkIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkIconView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				63B908BC2B76AED50007E37D /* PostDetailsViewController.swift */,
 				63D7B5392B7D912A00C15581 /* PostListViewController.swift */,
 				63D7B53B2B7DB66100C15581 /* PostCell.swift */,
+				63D91D1C2B8FF5BE00F25C4B /* BookmarkIconView.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 				63AB9BB02B783C3C0028C6CB /* PostsService.swift in Sources */,
 				63B908BB2B76AED50007E37D /* SceneDelegate.swift in Sources */,
 				63D91CF82B8A4A5900F25C4B /* PostsViewModel.swift in Sources */,
+				63D91D1D2B8FF5BE00F25C4B /* BookmarkIconView.swift in Sources */,
 				63AB9B992B7721E10028C6CB /* Post.swift in Sources */,
 				63D91CF52B87AACA00F25C4B /* PostManager.swift in Sources */,
 				63AB9BA52B7835070028C6CB /* Endpoint.swift in Sources */,

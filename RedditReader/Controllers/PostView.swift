@@ -28,9 +28,11 @@ class PostView: UIView {
     @IBOutlet private weak var rating: UIButton!
     @IBOutlet private weak var commentsCount: UIButton!
     @IBOutlet private weak var shareButton: UIButton!
-    
+
+    var bookmarkImageView: UIView!
     var post: Post?
     weak var delegate: PostDetailsViewDelegate?
+    var doubleTapGestureRecognizer: UITapGestureRecognizer!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -65,19 +67,61 @@ class PostView: UIView {
                 self.postImage.image = UIImage(named: "placeholder-image.png")
             }
         }
-//        print("PostDetailsViewCOntroller finished loading")
         self.bookmarkButton.addTarget(self, action: #selector(bookmarkButtonTapped), for: .touchUpInside)
         self.shareButton.addTarget(self, action: #selector(shareButtonTapped), for: .touchUpInside)
+        self.bookmarkImageView?.removeFromSuperview()
+        self.bookmarkImageView = BookmarkIconView()
+        self.bookmarkImageView.isHidden = true
+        addSubview(bookmarkImageView)
+        setupImageGestureRecognizer()
+    }
+    
+    
+    
+    private func setupImageGestureRecognizer() {
+        self.postImage.isUserInteractionEnabled = true
+        doubleTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(_:)))
+        doubleTapGestureRecognizer.numberOfTapsRequired = 2
+        self.postImage.addGestureRecognizer(doubleTapGestureRecognizer)
     }
     
 //  MARK: button click handler
     @objc private func bookmarkButtonTapped() {
-        
         post?.saved.toggle()
         let bookmarkImage = post!.saved ? UIImage(systemName: "bookmark.fill") : UIImage(systemName: "bookmark")
         self.bookmarkButton.setImage(bookmarkImage, for: .normal)
-//        print("post inPostView: \(post)")
         delegate?.saveButtonTapped(for: post!)
+    }
+    
+    @objc private func imageTapped(_ gesture: UITapGestureRecognizer) {
+        
+
+        guard gesture.state == .ended else { return }
+        
+        self.bookmarkImageView.center = contentView.center
+        
+        self.bookmarkImageView.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
+        self.bookmarkImageView.isHidden = true
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.1, initialSpringVelocity: 1, options:
+                .curveEaseInOut, animations: {
+            self.bookmarkImageView.transform = .identity
+            self.bookmarkImageView.isHidden = false
+            self.bookmarkImageView.alpha = 1.0
+//            print("hello")
+        }, completion: { _ in
+            self.post?.saved.toggle()
+            let bookmarkImage = self.post!.saved ? UIImage(systemName: "bookmark.fill") : UIImage(systemName: "bookmark")
+                    self.bookmarkButton.setImage(bookmarkImage, for: .normal)
+            self.delegate?.saveButtonTapped(for: self.post!)
+            UIView.animate(withDuration: 1, animations: {
+                self.bookmarkImageView.alpha = 0.0
+            }) { _ in
+                self.bookmarkImageView.isHidden = true
+            }
+            
+        }
+        )
+        
     }
     
     @objc private func shareButtonTapped() {

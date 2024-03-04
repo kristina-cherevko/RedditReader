@@ -33,7 +33,6 @@ extension HTTPClient {
         if let body = endpoint.body {
             request.httpBody = try? JSONSerialization.data(withJSONObject: body, options: [])
         }
-        print(request)
         do {
             let (data, response) = try await URLSession.shared.data(for: request, delegate: nil)
             
@@ -43,18 +42,11 @@ extension HTTPClient {
             
             switch response.statusCode {
             case 200...299:
-//                guard let decodedResponse = try? JSONDecoder().decode(responseModel, from: data) else {
-//                    print("endpoint: \(endpoint) data: \(data)")
-//                    return .failure(.decode)
-//                }
-//                return .success(decodedResponse)
                 do {
                     let decodedResponse = try JSONDecoder().decode(responseModel.self, from: data)
-                    // Use decodedResponse here
                     return .success(decodedResponse)
                 } catch {
                     print("Error decoding response: \(error)")
-                    print("Endpoint: \(endpoint) Data: \(data)")
                     return .failure(.decode)
                 }
             case 401:

@@ -99,10 +99,10 @@
                         <viewLayoutGuide key="safeArea" id="51E-F8-FQn"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="IMh-ND-Gas" firstAttribute="top" secondItem="51E-F8-FQn" secondAttribute="top" id="16q-yq-2S1"/>
                             <constraint firstItem="IMh-ND-Gas" firstAttribute="trailing" secondItem="51E-F8-FQn" secondAttribute="trailing" id="XH8-Q7-Pj6"/>
                             <constraint firstItem="IMh-ND-Gas" firstAttribute="leading" secondItem="51E-F8-FQn" secondAttribute="leading" id="hX3-qf-HN1"/>
                             <constraint firstAttribute="bottom" secondItem="IMh-ND-Gas" secondAttribute="bottom" id="uzm-ud-hd8"/>
+                            <constraint firstItem="IMh-ND-Gas" firstAttribute="top" secondItem="51E-F8-FQn" secondAttribute="top" id="wZf-dc-lIT"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="5JI-4t-xBv"/>
@@ -112,7 +112,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zkR-7e-JpH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="48.837209302325583" y="470.60085836909872"/>
+            <point key="canvasLocation" x="60" y="470"/>
         </scene>
     </scenes>
     <resources>
