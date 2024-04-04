@@ -7,11 +7,38 @@
 
 import Foundation
 
-protocol HTTPClient {
+enum HTTPMethod: String {
+    case get = "GET"
+    case post = "POST"
+    case put = "PUT"
+    case delete = "DELETE"
+}
+
+enum RequestError: Error {
+    case decode
+    case invalidURL
+    case noResponse
+    case unauthorized
+    case unexpectedStatusCode
+    case unknown
+    
+    var customMessage: String {
+        switch self {
+        case .decode:
+            return "Decode error"
+        case .unauthorized:
+            return "Session expired"
+        default:
+            return "Unknown error"
+        }
+    }
+}
+
+protocol NetworkHandler {
     func sendRequest<T: Decodable>(endpoint: Endpoint, responseModel: T.Type) async -> Result<T, RequestError>
 }
 
-extension HTTPClient {
+extension NetworkHandler {
     func sendRequest<T: Decodable>(endpoint: Endpoint, responseModel: T.Type) async -> Result<T, RequestError> {
         var urlComponents = URLComponents()
         urlComponents.scheme = endpoint.scheme
@@ -21,7 +48,7 @@ extension HTTPClient {
         if let queryItems = endpoint.queryItems {
             urlComponents.queryItems = queryItems.map { URLQueryItem(name: $0.key, value: $0.value) }
         }
-        
+       
         guard let url = urlComponents.url else {
             return .failure(.invalidURL)
         }
@@ -57,5 +84,20 @@ extension HTTPClient {
         } catch {
             return .failure(.unknown)
         }
+    }
+    func buildURL(from endpoint: Endpoint) -> URL? {
+        var urlComponents = URLComponents()
+        urlComponents.scheme = endpoint.scheme
+        urlComponents.host = endpoint.host
+        urlComponents.path = endpoint.path
+        
+        if let queryItems = endpoint.queryItems {
+            urlComponents.queryItems = queryItems.map { URLQueryItem(name: $0.key, value: $0.value) }
+        }
+        
+//        guard let url = urlComponents.url else {
+//            throw RequestError.invalidURL
+//        }
+        return urlComponents.url
     }
 }

@@ -8,7 +8,7 @@
 import Foundation
 
 class PostsViewModel {
-    let postsService = PostsService()
+    let postsService = SubredditService()
     let postDataManager = PostDataManager.shared
     
     var onPostsUpdated: (()->Void)?

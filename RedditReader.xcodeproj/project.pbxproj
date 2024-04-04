@@ -11,17 +11,18 @@
 		63AB9B9C2B772A430028C6CB /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 63AB9B9B2B772A430028C6CB /* SDWebImage */; };
 		63AB9B9E2B772A430028C6CB /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 63AB9B9D2B772A430028C6CB /* SDWebImageMapKit */; };
 		63AB9BA52B7835070028C6CB /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AB9BA42B7835070028C6CB /* Endpoint.swift */; };
-		63AB9BA72B7835C50028C6CB /* RequestType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AB9BA62B7835C50028C6CB /* RequestType.swift */; };
-		63AB9BAA2B7836660028C6CB /* RequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AB9BA92B7836660028C6CB /* RequestError.swift */; };
-		63AB9BAC2B78369F0028C6CB /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AB9BAB2B78369F0028C6CB /* HTTPClient.swift */; };
-		63AB9BAE2B7839490028C6CB /* PostsEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AB9BAD2B7839490028C6CB /* PostsEndpoint.swift */; };
-		63AB9BB02B783C3C0028C6CB /* PostsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AB9BAF2B783C3C0028C6CB /* PostsService.swift */; };
+		63AB9BAC2B78369F0028C6CB /* NetworkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AB9BAB2B78369F0028C6CB /* NetworkHandler.swift */; };
+		63AB9BAE2B7839490028C6CB /* SubredditEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AB9BAD2B7839490028C6CB /* SubredditEndpoint.swift */; };
+		63AB9BB02B783C3C0028C6CB /* SubredditService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AB9BAF2B783C3C0028C6CB /* SubredditService.swift */; };
 		63B908B92B76AED50007E37D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B908B82B76AED50007E37D /* AppDelegate.swift */; };
 		63B908BB2B76AED50007E37D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B908BA2B76AED50007E37D /* SceneDelegate.swift */; };
 		63B908BD2B76AED50007E37D /* PostDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B908BC2B76AED50007E37D /* PostDetailsViewController.swift */; };
 		63B908C02B76AED50007E37D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63B908BE2B76AED50007E37D /* Main.storyboard */; };
 		63B908C22B76AED60007E37D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63B908C12B76AED60007E37D /* Assets.xcassets */; };
 		63B908C52B76AED60007E37D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63B908C32B76AED60007E37D /* LaunchScreen.storyboard */; };
+		63D433012BBEFB4D00F5E097 /* CommentsEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D433002BBEFB4D00F5E097 /* CommentsEndpoint.swift */; };
+		63D433032BBEFBAC00F5E097 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D433022BBEFBAC00F5E097 /* Comment.swift */; };
+		63D433052BBEFBBD00F5E097 /* ChildComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D433042BBEFBBD00F5E097 /* ChildComment.swift */; };
 		63D7B5362B7D892B00C15581 /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D7B5352B7D892B00C15581 /* PostView.swift */; };
 		63D7B5382B7D897900C15581 /* PostDetailsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63D7B5372B7D897900C15581 /* PostDetailsView.xib */; };
 		63D7B53A2B7D912A00C15581 /* PostListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D7B5392B7D912A00C15581 /* PostListViewController.swift */; };
@@ -34,11 +35,9 @@
 /* Begin PBXFileReference section */
 		63AB9B982B7721E10028C6CB /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		63AB9BA42B7835070028C6CB /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
-		63AB9BA62B7835C50028C6CB /* RequestType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestType.swift; sourceTree = "<group>"; };
-		63AB9BA92B7836660028C6CB /* RequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestError.swift; sourceTree = "<group>"; };
-		63AB9BAB2B78369F0028C6CB /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
-		63AB9BAD2B7839490028C6CB /* PostsEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsEndpoint.swift; sourceTree = "<group>"; };
-		63AB9BAF2B783C3C0028C6CB /* PostsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsService.swift; sourceTree = "<group>"; };
+		63AB9BAB2B78369F0028C6CB /* NetworkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHandler.swift; sourceTree = "<group>"; };
+		63AB9BAD2B7839490028C6CB /* SubredditEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubredditEndpoint.swift; sourceTree = "<group>"; };
+		63AB9BAF2B783C3C0028C6CB /* SubredditService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubredditService.swift; sourceTree = "<group>"; };
 		63B908B52B76AED50007E37D /* RedditReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RedditReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63B908B82B76AED50007E37D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		63B908BA2B76AED50007E37D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -47,6 +46,9 @@
 		63B908C12B76AED60007E37D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		63B908C42B76AED60007E37D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		63B908C62B76AED60007E37D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		63D433002BBEFB4D00F5E097 /* CommentsEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsEndpoint.swift; sourceTree = "<group>"; };
+		63D433022BBEFBAC00F5E097 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		63D433042BBEFBBD00F5E097 /* ChildComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildComment.swift; sourceTree = "<group>"; };
 		63D7B5352B7D892B00C15581 /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
 		63D7B5372B7D897900C15581 /* PostDetailsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostDetailsView.xib; sourceTree = "<group>"; };
 		63D7B5392B7D912A00C15581 /* PostListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListViewController.swift; sourceTree = "<group>"; };
@@ -73,6 +75,8 @@
 			isa = PBXGroup;
 			children = (
 				63AB9B982B7721E10028C6CB /* Post.swift */,
+				63D433022BBEFBAC00F5E097 /* Comment.swift */,
+				63D433042BBEFBBD00F5E097 /* ChildComment.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -104,9 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				63AB9BA42B7835070028C6CB /* Endpoint.swift */,
-				63AB9BA62B7835C50028C6CB /* RequestType.swift */,
-				63AB9BA92B7836660028C6CB /* RequestError.swift */,
-				63AB9BAB2B78369F0028C6CB /* HTTPClient.swift */,
+				63AB9BAB2B78369F0028C6CB /* NetworkHandler.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -114,7 +116,8 @@
 		63AB9BA22B7834E20028C6CB /* Endpoints */ = {
 			isa = PBXGroup;
 			children = (
-				63AB9BAD2B7839490028C6CB /* PostsEndpoint.swift */,
+				63AB9BAD2B7839490028C6CB /* SubredditEndpoint.swift */,
+				63D433002BBEFB4D00F5E097 /* CommentsEndpoint.swift */,
 			);
 			path = Endpoints;
 			sourceTree = "<group>";
@@ -122,7 +125,7 @@
 		63AB9BA32B7834EA0028C6CB /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				63AB9BAF2B783C3C0028C6CB /* PostsService.swift */,
+				63AB9BAF2B783C3C0028C6CB /* SubredditService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -256,22 +259,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				63AB9BAA2B7836660028C6CB /* RequestError.swift in Sources */,
 				63B908BD2B76AED50007E37D /* PostDetailsViewController.swift in Sources */,
-				63AB9BAC2B78369F0028C6CB /* HTTPClient.swift in Sources */,
+				63AB9BAC2B78369F0028C6CB /* NetworkHandler.swift in Sources */,
 				63B908B92B76AED50007E37D /* AppDelegate.swift in Sources */,
 				63D7B53C2B7DB66100C15581 /* PostCell.swift in Sources */,
+				63D433052BBEFBBD00F5E097 /* ChildComment.swift in Sources */,
 				63D7B53A2B7D912A00C15581 /* PostListViewController.swift in Sources */,
 				63D7B5362B7D892B00C15581 /* PostView.swift in Sources */,
-				63AB9BA72B7835C50028C6CB /* RequestType.swift in Sources */,
-				63AB9BB02B783C3C0028C6CB /* PostsService.swift in Sources */,
+				63D433012BBEFB4D00F5E097 /* CommentsEndpoint.swift in Sources */,
+				63AB9BB02B783C3C0028C6CB /* SubredditService.swift in Sources */,
 				63B908BB2B76AED50007E37D /* SceneDelegate.swift in Sources */,
 				63D91CF82B8A4A5900F25C4B /* PostsViewModel.swift in Sources */,
 				63D91D1D2B8FF5BE00F25C4B /* BookmarkIconView.swift in Sources */,
+				63D433032BBEFBAC00F5E097 /* Comment.swift in Sources */,
 				63AB9B992B7721E10028C6CB /* Post.swift in Sources */,
 				63D91CF52B87AACA00F25C4B /* PostManager.swift in Sources */,
 				63AB9BA52B7835070028C6CB /* Endpoint.swift in Sources */,
-				63AB9BAE2B7839490028C6CB /* PostsEndpoint.swift in Sources */,
+				63AB9BAE2B7839490028C6CB /* SubredditEndpoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,11 +7,12 @@
 
 import Foundation
 
-enum PostsEndpoint {
+enum SubredditEndpoint {
     case postRow(subreddit: String, limit: Int?, after: String?)
+    case postComments(subreddit: String, postId: String, limit: Int?)
 }
 
-extension PostsEndpoint: Endpoint {
+extension SubredditEndpoint: Endpoint {
     
     var header: [String : String]? {
         nil
@@ -21,6 +22,8 @@ extension PostsEndpoint: Endpoint {
         switch self {
         case .postRow(let subreddit, _, _):
             return "/r/\(subreddit)/top.json"
+        case .postComments(let subreddit, let postId, _):
+            return "/r/\(subreddit)/comments/\(postId)/.json"
         }
     }
 
@@ -36,19 +39,25 @@ extension PostsEndpoint: Endpoint {
             }
             
             return params
+        case .postComments(subreddit: _,  _, let limit):
+            var params = [String: String?]()
+            if let limit = limit {
+                params["limit"] = String(limit)
+            }
+            return params
         }
     }
     
-    var type: RequestType {
+    var type: HTTPMethod {
         switch self {
-        case .postRow:
+        case .postRow, .postComments:
             return .get
         }
     }
     
     var body: [String: String]? {
         switch self {
-        case .postRow:
+        case .postRow, .postComments:
             return nil
         }
     }
