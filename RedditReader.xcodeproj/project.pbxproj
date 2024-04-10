@@ -23,6 +23,10 @@
 		63D433012BBEFB4D00F5E097 /* CommentsEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D433002BBEFB4D00F5E097 /* CommentsEndpoint.swift */; };
 		63D433032BBEFBAC00F5E097 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D433022BBEFBAC00F5E097 /* Comment.swift */; };
 		63D433052BBEFBBD00F5E097 /* ChildComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D433042BBEFBBD00F5E097 /* ChildComment.swift */; };
+		63D433082BBF060A00F5E097 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D433072BBF060A00F5E097 /* CommentCell.swift */; };
+		63D4330A2BBF066F00F5E097 /* CommentDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D433092BBF066F00F5E097 /* CommentDetailsView.swift */; };
+		63D4330C2BBF068F00F5E097 /* CommentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D4330B2BBF068F00F5E097 /* CommentsView.swift */; };
+		63D4330E2BBF06BA00F5E097 /* CommentsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D4330D2BBF06BA00F5E097 /* CommentsViewModel.swift */; };
 		63D7B5362B7D892B00C15581 /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D7B5352B7D892B00C15581 /* PostView.swift */; };
 		63D7B5382B7D897900C15581 /* PostDetailsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63D7B5372B7D897900C15581 /* PostDetailsView.xib */; };
 		63D7B53A2B7D912A00C15581 /* PostListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D7B5392B7D912A00C15581 /* PostListViewController.swift */; };
@@ -49,6 +53,10 @@
 		63D433002BBEFB4D00F5E097 /* CommentsEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsEndpoint.swift; sourceTree = "<group>"; };
 		63D433022BBEFBAC00F5E097 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		63D433042BBEFBBD00F5E097 /* ChildComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildComment.swift; sourceTree = "<group>"; };
+		63D433072BBF060A00F5E097 /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
+		63D433092BBF066F00F5E097 /* CommentDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentDetailsView.swift; sourceTree = "<group>"; };
+		63D4330B2BBF068F00F5E097 /* CommentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsView.swift; sourceTree = "<group>"; };
+		63D4330D2BBF06BA00F5E097 /* CommentsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsViewModel.swift; sourceTree = "<group>"; };
 		63D7B5352B7D892B00C15581 /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
 		63D7B5372B7D897900C15581 /* PostDetailsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostDetailsView.xib; sourceTree = "<group>"; };
 		63D7B5392B7D912A00C15581 /* PostListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListViewController.swift; sourceTree = "<group>"; };
@@ -149,6 +157,7 @@
 		63B908B72B76AED50007E37D /* RedditReader */ = {
 			isa = PBXGroup;
 			children = (
+				63D433062BBEFEBE00F5E097 /* Views */,
 				63D91CF92B8A627600F25C4B /* ViewModels */,
 				63D91CF32B87AAB000F25C4B /* Managers */,
 				63AB9BA02B7834C60028C6CB /* Network */,
@@ -164,6 +173,16 @@
 			path = RedditReader;
 			sourceTree = "<group>";
 		};
+		63D433062BBEFEBE00F5E097 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				63D433072BBF060A00F5E097 /* CommentCell.swift */,
+				63D433092BBF066F00F5E097 /* CommentDetailsView.swift */,
+				63D4330B2BBF068F00F5E097 /* CommentsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		63D91CF32B87AAB000F25C4B /* Managers */ = {
 			isa = PBXGroup;
 			children = (
@@ -176,6 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				63D91CF72B8A4A5900F25C4B /* PostsViewModel.swift */,
+				63D4330D2BBF06BA00F5E097 /* CommentsViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -261,14 +281,18 @@
 			files = (
 				63B908BD2B76AED50007E37D /* PostDetailsViewController.swift in Sources */,
 				63AB9BAC2B78369F0028C6CB /* NetworkHandler.swift in Sources */,
+				63D4330C2BBF068F00F5E097 /* CommentsView.swift in Sources */,
 				63B908B92B76AED50007E37D /* AppDelegate.swift in Sources */,
 				63D7B53C2B7DB66100C15581 /* PostCell.swift in Sources */,
 				63D433052BBEFBBD00F5E097 /* ChildComment.swift in Sources */,
+				63D433082BBF060A00F5E097 /* CommentCell.swift in Sources */,
 				63D7B53A2B7D912A00C15581 /* PostListViewController.swift in Sources */,
 				63D7B5362B7D892B00C15581 /* PostView.swift in Sources */,
 				63D433012BBEFB4D00F5E097 /* CommentsEndpoint.swift in Sources */,
 				63AB9BB02B783C3C0028C6CB /* SubredditService.swift in Sources */,
 				63B908BB2B76AED50007E37D /* SceneDelegate.swift in Sources */,
+				63D4330E2BBF06BA00F5E097 /* CommentsViewModel.swift in Sources */,
+				63D4330A2BBF066F00F5E097 /* CommentDetailsView.swift in Sources */,
 				63D91CF82B8A4A5900F25C4B /* PostsViewModel.swift in Sources */,
 				63D91D1D2B8FF5BE00F25C4B /* BookmarkIconView.swift in Sources */,
 				63D433032BBEFBAC00F5E097 /* Comment.swift in Sources */,

@@ -32,6 +32,8 @@ struct Child: Codable {
 // MARK: - Post
 struct Post: Codable {
     let subreddit: String
+    let id: String
+    let author: String
     let authorFullname: String?
     let title: String
     let downs: Int
@@ -45,6 +47,8 @@ struct Post: Codable {
 
     enum CodingKeys: String, CodingKey {
         case subreddit
+        case id
+        case author
         case authorFullname = "author_fullname"
         case title
         case downs
@@ -61,11 +65,11 @@ struct Post: Codable {
 
 // MARK: - Preview
 struct Preview: Codable {
-    let images: [Image]
+    let images: [ImageFromAPI]
 }
 
 // MARK: - Image
-struct Image: Codable {
+struct ImageFromAPI: Codable {
     let source: Source
 }
 

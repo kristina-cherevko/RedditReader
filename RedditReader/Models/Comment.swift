@@ -55,7 +55,7 @@ struct PurpleData: Codable {
 }
 
 // MARK: - Comment
-struct Comment: Codable, Hashable {
+struct Comment: Identifiable, Codable, Hashable {
     var id = UUID()
     var name: String
     var rating: Int

@@ -16,21 +16,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" verticalCompressionResistancePriority="751" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="44a-aX-8gu" customClass="PostView" customModule="RedditReader" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="64" width="320" height="235"/>
+                            <view contentMode="scaleToFill" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="44a-aX-8gu" customClass="PostView" customModule="RedditReader" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="20" width="320" height="228"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G7s-Dc-P9z">
+                                <rect key="frame" x="0.0" y="248" width="320" height="320"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="G7s-Dc-P9z" secondAttribute="height" multiplier="1:1" priority="250" id="0Yt-Uz-dnf"/>
+                                </constraints>
+                            </containerView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="oKi-5z-4bo"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="G7s-Dc-P9z" firstAttribute="leading" secondItem="oKi-5z-4bo" secondAttribute="leading" id="2xZ-B2-bjK"/>
+                            <constraint firstItem="oKi-5z-4bo" firstAttribute="trailing" secondItem="G7s-Dc-P9z" secondAttribute="trailing" id="SqR-T2-kIU"/>
                             <constraint firstItem="44a-aX-8gu" firstAttribute="trailing" secondItem="oKi-5z-4bo" secondAttribute="trailing" id="exc-dL-zZZ"/>
+                            <constraint firstItem="G7s-Dc-P9z" firstAttribute="top" secondItem="44a-aX-8gu" secondAttribute="bottom" id="iVh-wp-VkP"/>
                             <constraint firstItem="44a-aX-8gu" firstAttribute="leading" secondItem="oKi-5z-4bo" secondAttribute="leading" id="nDG-ji-Yxf"/>
+                            <constraint firstItem="oKi-5z-4bo" firstAttribute="bottom" secondItem="G7s-Dc-P9z" secondAttribute="bottom" id="oiM-dM-yuy"/>
                             <constraint firstItem="44a-aX-8gu" firstAttribute="top" secondItem="oKi-5z-4bo" secondAttribute="top" id="p1m-AE-3oS"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Xw3-4p-Cr8"/>
                     <connections>
+                        <outlet property="containerView" destination="G7s-Dc-P9z" id="kwI-Li-ZQj"/>
                         <outlet property="postDetailsView" destination="44a-aX-8gu" id="s8z-BY-tkQ"/>
                     </connections>
                 </viewController>
