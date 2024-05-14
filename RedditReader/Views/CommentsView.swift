@@ -38,28 +38,7 @@ struct CommentsView: View {
             }
         }
         .listStyle(.plain)
+        .padding(.top, 8)
         .foregroundColor(.primary)
     }
 }
-
-var subreddit: String?
-var postId: String?
-//#Preview {
-//    CommentsView()
-//}
-
-//                        NavigationLink(value: comment) {
-//                            CommentCell(comment: comment)
-//                            .onAppear() {
-//                                if viewModel.hasReachedEnd(of: comment) && !viewModel.isFetching {
-//                                    viewModel.loadMoreData()
-//                                }
-//                            }
-//                        }
-
-//            .navigationDestination(
-//                for: Comment.self,
-//                destination:  { comment in
-//                    CommentDetailsView(comment: comment)
-//                }
-//            )

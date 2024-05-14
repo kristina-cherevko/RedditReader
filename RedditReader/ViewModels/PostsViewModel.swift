@@ -42,41 +42,43 @@ class PostsViewModel {
     }
     
     func savePost(_ post: Post) {
-        var savedPosts = postDataManager.loadPosts()
-        savedPosts.append(post)
-        postDataManager.savePosts(savedPosts)
-        if let index = self.allPosts.firstIndex(where: { $0.title == post.title && $0.authorFullname == post.authorFullname && $0.created == post.created }) {
+//        var savedPosts = postDataManager.loadPosts()
+//        savedPosts.append(post)
+        postDataManager.savePost(post)
+        
+        if let index = self.allPosts.firstIndex(where: { $0.id == post.id }) {
             self.allPosts[index] = post
         }
     }
     
-    func savePosts(_ posts: [Post]) {
-        var savedPosts = postDataManager.loadPosts()
-        savedPosts.append(contentsOf: posts)
-        postDataManager.savePosts(savedPosts)
-        for post in posts {
-            if let index = self.allPosts.firstIndex(where: { $0.title == post.title && $0.authorFullname == post.authorFullname && $0.created == post.created }) {
-                self.allPosts[index] = post
-            }
-        }
-    }
+//    func savePosts(_ posts: [Post]) {
+//        var savedPosts = postDataManager.loadPosts()
+//        savedPosts.append(contentsOf: posts)
+//        postDataManager.savePosts(savedPosts)
+//        for post in posts {
+//            
+//            if let index = self.allPosts.firstIndex(where: { $0.id == post.id }) {
+//                self.allPosts[index] = post
+//            }
+//        }
+//    }
     
     func unsavePost(_ post: Post) {
-        var savedPosts = postDataManager.loadPosts()
-        savedPosts.removeAll(where: { $0.title == post.title && $0.authorFullname == post.authorFullname && $0.created == post.created })
-        postDataManager.savePosts(savedPosts)
-        if let index = self.allPosts.firstIndex(where: { $0.title == post.title && $0.authorFullname == post.authorFullname && $0.created == post.created }) {
+//        var savedPosts = postDataManager.loadPosts()
+//        savedPosts.removeAll(where: { $0.id == post.id })
+        postDataManager.unsavePost(post)
+        if let index = self.allPosts.firstIndex(where: { $0.id == post.id }) {
             self.allPosts[index] = post
         }
     }
     
     func isPostSaved(_ post: Post) -> Bool {
-        let savedPosts = postDataManager.loadPosts()
-        return savedPosts.contains(where: { $0.title == post.title && $0.authorFullname == post.authorFullname && $0.created == post.created })
+        let savedPosts = postDataManager.getPosts()
+        return savedPosts.contains(where: { $0.id == post.id })
     }
     
     private func loadInitialPosts(subreddit: String, limit: Int, after: String?) {
-        let savedPosts = postDataManager.loadPosts()
+        let savedPosts = postDataManager.getPosts()
         self.allPosts = savedPosts
         self.displayedPosts = savedPosts
         loadPosts(subreddit: subreddit, limit: limit, after: after)
@@ -100,7 +102,7 @@ class PostsViewModel {
     private func handleLoadedPosts(_ newPosts: [Post]) {
         var mergedPosts = self.allPosts
         for newPost in newPosts {
-           if !allPosts.contains(where: { $0.title == newPost.title && $0.authorFullname == newPost.authorFullname && $0.created == newPost.created }) {
+           if !allPosts.contains(where: { $0.id == newPost.id }) {
                mergedPosts.append(newPost)
            }
         }

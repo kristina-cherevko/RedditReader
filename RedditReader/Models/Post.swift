@@ -47,8 +47,8 @@ struct Post: Codable {
 
     enum CodingKeys: String, CodingKey {
         case subreddit
-        case id
         case author
+        case id
         case authorFullname = "author_fullname"
         case title
         case downs
@@ -59,7 +59,6 @@ struct Post: Codable {
         case numComments = "num_comments"
         case saved
         case url = "permalink"
-        
     }
 }
 

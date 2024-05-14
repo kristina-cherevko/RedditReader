@@ -13,10 +13,9 @@ protocol PostDetailsViewDelegate: AnyObject {
 }
 
 class PostView: UIView {
-    let kCONTENT_XIB_NAME = "PostDetailsView"
+    private let kCONTENT_XIB_NAME = "PostDetailsView"
 
-    
-    @IBOutlet var contentView: UIView!
+    @IBOutlet private var contentView: UIView!
     @IBOutlet private weak var username: UILabel!
     @IBOutlet private weak var createdAt: UILabel!
     @IBOutlet private weak var domain: UILabel!
@@ -29,7 +28,7 @@ class PostView: UIView {
     @IBOutlet private weak var commentsCount: UIButton!
     @IBOutlet private weak var shareButton: UIButton!
 
-    var bookmarkImageView: UIView!
+    private var bookmarkImageView: UIView!
     var post: Post?
     weak var delegate: PostDetailsViewDelegate?
     var doubleTapGestureRecognizer: UITapGestureRecognizer!
